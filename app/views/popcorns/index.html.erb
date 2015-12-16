@@ -1,0 +1,29 @@
+<h1>Listing popcorns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flavor</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @popcorns.each do |popcorn| %>
+      <tr>
+        <td><%= image_tag(popcorn.picture_url, width: 20) if popcorn.picture.present? %></td>
+        <td><%= popcorn.flavor %></td>
+        <td><%= popcorn.description %></td>
+        <td><%= link_to 'Show', popcorn %></td>
+        <td><%= link_to 'Edit', edit_popcorn_path(popcorn) %></td>
+        <td><%= link_to 'Destroy', popcorn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Popcorn', new_popcorn_path %>

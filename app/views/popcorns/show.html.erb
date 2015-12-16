@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flavor:</strong>
+  <%= @popcorn.flavor %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @popcorn.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@popcorn.picture_url, width: 300) if @popcorn.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_popcorn_path(@popcorn) %> |
+<%= link_to 'Back', popcorns_path %>
